@@ -110,6 +110,3 @@ runProgram();
 // })
 //
 // console.log(b)
-
-
-for
