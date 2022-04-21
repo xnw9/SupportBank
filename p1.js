@@ -3,88 +3,89 @@
 TODO:
 - read csv
 - format date
-- assign values
-- somewhere to record account / transactions
-- which could provide printing out
 
 */
 
 // moment("12/25/1995", "MM-DD-YYYY");
 
 
-// class of account
-class Account {
-    constructor(name, balance) {
-        this.name = name
-        this.balance = balance
-    }
 
-    transferIn(amount) {
-        this.balance = this.balance + amount
-    }
-
-    transferOut(amount) {
-        this.balance = this.balance - amount
-    }
-
-    showBalance() {
-        return this.balance
-    }
-
-}
-
-
-///////////////////////////////////////////////
-
-// class for transaction??
+// class for transaction
 class Transaction {
-    constructor(from, to, amount, date) {
+    constructor(from, to, amount, date, narrative) {
         this.from = from
         this.to = to
         this.amount = amount
         this.date = date     // requires further tempting?
+        this.narrative = narrative
     }
-    // print or return
+    // print
     print() {
         console.log(this.from + "transfer" + String(this.amount) + "to" + this.to + "at" + String(this.date))
     }
-}
 
-function transaction(acc_from, acc_to, amount) {
-    acc_from.transferOut(amount)
-    acc_to.transferIn(amount)
-    console.log("Completed transfer from" + acc_from.name + "to" + acc_to.name)
+    // for search function in bank
+    searchResponse(name) {
+        return (name == this.to || name == this.from)
+
+    }
 }
 
 
 ///////////////////////////////////////////////////////////////
 
-function service() {
-    var command = readlineSync.question('List All / List Account')
-
-    // need to capture exception and return
-
-    let name = command.slice(5)
-
-    if (name=="All") {
-        // print all
-
-    } else {
-        // search for account with that name
-
-    }
-
-}
 
 class Bank {
     constructor() {
+        this.fullTrans = []
     }
 
-    printAll() {
-
-    }
-
+    // read csv -----------------------------------------------!
     readFile() {
+
+    }
+
+    // print everything
+    printAll() {
+        for (let i in fullTrans) {
+            this.fullTrans[i].print()
+        }
+    }
+
+    // search transaction with target name
+    search(target) {
+        let resultList = []
+        for (let i in this.fullTrans) {
+            let response = this.fullTrans[i].searchResponse(target)
+            if (response) {
+                resultList.push(this.fullTrans[i])
+            }
+
+        }
+        return resultList
+    }
+
+    // print transactions for target name
+    printResult(resultList) {
+        for (let i in resultList) {
+            resultList[i].print()
+        }
+    }
+
+    // obtain and response to user input
+    service() {
+        const command = readlineSync.question('List All / List Account')
+
+        // need to capture exception and return
+
+        let targetName = command.slice(5)
+
+        if (name=="All") {
+            this.printAll()
+        } else {
+            let resultList = this.search(targetName)     // search for account with that name
+            this.printResult(resultList)     // print out results
+        }
 
     }
 

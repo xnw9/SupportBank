@@ -60,3 +60,24 @@ console.log(transs)
 
 
 ///////////////////////////////////////////
+
+// class of account
+class Account {
+    constructor(name, balance) {
+        this.name = name
+        this.balance = balance
+    }
+
+    transferIn(amount) {
+        this.balance = this.balance + amount
+    }
+
+    transferOut(amount) {
+        this.balance = this.balance - amount
+    }
+
+    showBalance() {
+        return this.balance
+    }
+
+}
