@@ -22,7 +22,7 @@ Your program should support two commands, which can be typed in on the console:
 > - accept user input - the readline-sync package
 > 
 > - JavaScript Date class is extremely bothersome to use; parse your date strings using the moment package instead: install it with npm install moment and see [this](https://momentjs.com/docs/#/parsing/string-format/) link for documentation on how to parse dates.
-
+>
 > - parse the file yourself, or search NPM for a relevant CSV parsing library
 
 
