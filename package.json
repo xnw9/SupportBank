@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/xnw9/SupportBank#readme",
   "dependencies": {
+    "csv-parser": "^3.0.0",
+    "moment": "^2.29.3",
     "readline-sync": "^1.4.10"
   }
 }
