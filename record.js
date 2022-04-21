@@ -81,3 +81,17 @@ class Account {
     }
 
 }
+
+///////////////////////////////////////
+
+let datas = []
+
+fs.readFile("Transactions2014.csv", "utf-8", (err, data) => {
+    if (err) console.log(err);
+    else {
+        // console.log(data)
+        datas.push(data)
+    }
+
+});
+console.log(datas)
