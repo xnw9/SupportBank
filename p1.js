@@ -2,13 +2,16 @@
 /*
 TODO:
 - read csv
+- format date
 - assign values
 - somewhere to record account / transactions
 - which could provide printing out
 
 */
 
-moment("12/25/1995", "MM-DD-YYYY");
+// moment("12/25/1995", "MM-DD-YYYY");
+
+
 // class of account
 class Account {
     constructor(name, balance) {
@@ -61,6 +64,9 @@ function transaction(acc_from, acc_to, amount) {
     console.log("Completed transfer from" + acc_from.name + "to" + acc_to.name)
 }
 
+// let test = new Transaction(transs[0]["From"], transs[0]["To"], transs[0]["Amount"])
+// console.log(test.print())
+
 ///////////////////////////////////////////////////////////////
 
 function service() {
@@ -75,6 +81,20 @@ function service() {
 
     } else {
         // search for account with that name
+
+    }
+
+}
+
+class Bank {
+    constructor() {
+    }
+
+    printAll() {
+
+    }
+
+    readFile() {
 
     }
 

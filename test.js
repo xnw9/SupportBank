@@ -1,29 +1,21 @@
+import { parse } from 'csv-parse';
 
-// after npm i -s csv-parser
-const csv = require('csv-parser');
-const fs = require('fs');
+const records = [];
+// Initialize the parser
+const parser = parse({
+    delimiter: ','
+});
+// Use the readable stream api to consume records
+parser.on('Transactions2014.csv', function(){
+    let record;
+    while ((record = parser.read()) !== null) {
+        records.push(record);
+    }
+});
 
-transactions = []
 
-fs.createReadStream('Transactions2014.csv')
-    .pipe(csv())
-    .on('data', (row) => {
-        let trans = {
-            date: row.Date,
-            from: row.From,
-            to: row.To,
-            narrative: row.Narrative,
-            amount: row.Amount
-        }
-        transactions.push(trans)
-    })
-    .on('end', () => {
-        console.log('CSV file successfully processed');
-        console.log(transactions[0]["date"])     // has been pushed correctly
-    });
 
-console.log(transactions)    // even though written after csv-reading section, it happens before that
-                            // thus the empty list?
+
 
 /*
 
