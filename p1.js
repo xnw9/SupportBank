@@ -32,15 +32,7 @@ class Account {
     }
 
 }
-let a = new Account("a", 0)
-console.log(a.name)
 
-a.transferIn(100)
-a.transferOut(50)
-console.log(a.balance)
-
-b = a.showBalance()
-console.log(b)
 
 ///////////////////////////////////////////////
 
@@ -64,8 +56,6 @@ function transaction(acc_from, acc_to, amount) {
     console.log("Completed transfer from" + acc_from.name + "to" + acc_to.name)
 }
 
-// let test = new Transaction(transs[0]["From"], transs[0]["To"], transs[0]["Amount"])
-// console.log(test.print())
 
 ///////////////////////////////////////////////////////////////
 
