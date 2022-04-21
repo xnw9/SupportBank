@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/xnw9/SupportBank/issues"
   },
-  "homepage": "https://github.com/xnw9/SupportBank#readme"
+  "homepage": "https://github.com/xnw9/SupportBank#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }

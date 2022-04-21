@@ -18,6 +18,19 @@ class Account {
         return this.balance
     }
 }
+
+class Transaction {
+    constructor(from, to, amount, date) {
+        this.from = from
+        this.to = to
+        this.amount = amount
+        this.date = date
+    }
+
+    print() {
+        \\ print or return
+    }
+}
 let a = new Account("a", 0)
 console.log(a.name)
 
@@ -32,3 +45,29 @@ console.log(b)
 // in / out
 // "transfer from sb to sb", evoke 2 basic methods
 
+
+function transaction(acc_from, acc_to, amount) {
+    acc_from.transferOut(amount)
+    acc_to.transferIn(amount)
+    console.log("Completed transfer from" + acc_from.name + "to" + acc_to.name)
+}
+
+function service() {
+    var command = readlineSync.question('List All / List Account')
+
+    // need to capture exception and return
+
+    let name = command.slice(5)
+
+    if (name=="All") {
+        // print all
+
+    } else {
+        // search for account with that name
+
+    }
+
+}
+
+var readlineSync = require('readline-sync');
+var userName = readlineSync.question('May I have your name? ');
