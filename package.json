@@ -19,6 +19,7 @@
   "dependencies": {
     "csv-parse": "^5.0.4",
     "csv-parser": "^3.0.0",
+    "log4js": "^6.4.5",
     "moment": "^2.29.3",
     "node-csv": "^0.1.2",
     "readline-sync": "^1.4.10"

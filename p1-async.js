@@ -7,7 +7,6 @@ TODO:
 
 // moment("12/25/1995", "MM-DD-YYYY");
 
-
 // class for transaction
 class Transaction {
     constructor(from, to, amount, date, narrative) {
@@ -31,10 +30,10 @@ class Transaction {
     }
 }
 
-
 ///////////////////////////////////////////////////////////////
 const csv = require('csv-parser');
 var fs = require("fs")
+const readlineSync = require("readline-sync");
 
 
 /////////////////////////////////////////////////
@@ -53,18 +52,18 @@ class Bank {
                 .pipe(csv())
                 // .on('data') handling transactions.push(...)
                 .on('data', (row) => {
-                    let trans = {
-                        date: row.Date,
-                        from: row.From,
-                        to: row.To,
-                        narrative: row.Narrative,
-                        amount: row.Amount
-                    }
-                    result.push(trans)
+
+                    let trans = new Transaction(row.From,
+                        row.To,
+                        row.Amount,
+                        row.Date,
+                        row.Narrative)
+                    this.fullTrans.push(trans)
+
                 })
                 .on('end', () => {
-                    if (result) {
-                        resolve(result)
+                    if (this.fullTrans) {
+                        resolve(this.fullTrans)
                     } else {
                         reject(Error("No data was found in the .csv"))
                     }
@@ -77,18 +76,11 @@ class Bank {
 
         const runProgram = async () => {
             const transactions = await this.readAndParseFile(fileName);
-            // use the transactions
-            // console.log(transactions)
 
-            // create trans objects and save into lists so no need to read again eaaaaaaaa
-            for (let i in transactions) {
-                let trans = new Transaction(transactions[i]["from"],
-                    transactions[i]["to"],
-                    transactions[i]["amount"],
-                    transactions[i]["date"],
-                    transactions[i]["narrative"])
-                this.fullTrans.push(trans)
-            }
+            // use the transactions
+            console.log(transactions[0])     // just testing
+
+
         }
 
         runProgram();
@@ -141,6 +133,7 @@ class Bank {
 
 let b = new Bank()
 b.readFile("Transactions2014.csv")
+b.printAll()
 console.log(b.fullTrans)     // still not logging, need to ask ---------------------
 r = b.search("Jon A")
 console.log(r)

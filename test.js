@@ -1,4 +1,3 @@
-
 // testing for reading csv......
 
 
@@ -68,7 +67,7 @@ var fs = require("fs")
 
 function readAndParseFile() {
     let result = []
-    return new Promise((resolve,reject)=> {
+    return new Promise((resolve, reject) => {
         let transactions = [];
         fs.createReadStream('Transactions2014.csv')
             .pipe(csv())
@@ -91,19 +90,21 @@ function readAndParseFile() {
                     reject(Error("No data was found in the .csv"))
                 }
             })
-    })}
+    })
+}
+
+let trans = []
 
 const runProgram = async () => {
     const transactions = await readAndParseFile();
     // use the transactions
-    // console.log(transactions)
-    transs = []
+    console.log(transactions)
+    trans.push(transactions[0])
     // create trans objects and save into lists so no need to read again eaaaaaaaa
 }
 
 runProgram();
-
-
+console.log(trans)
 
 // b = a.then(function(result) {
 //     console.log(result[0])
