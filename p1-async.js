@@ -58,12 +58,12 @@ class Bank {
                         row.Amount,
                         row.Date,
                         row.Narrative)
-                    this.fullTrans.push(trans)
+                    transactions.push(trans)
 
                 })
                 .on('end', () => {
-                    if (this.fullTrans) {
-                        resolve(this.fullTrans)
+                    if (transactions) {
+                        resolve(transactions)
                     } else {
                         reject(Error("No data was found in the .csv"))
                     }
@@ -75,12 +75,10 @@ class Bank {
     readFile(fileName) {
 
         const runProgram = async () => {
-            const transactions = await this.readAndParseFile(fileName);
+            this.fullTrans = await this.readAndParseFile(fileName);
 
             // use the transactions
-            console.log(transactions[0])     // just testing
-
-
+            console.log(this.fullTrans[0])     // just testing
         }
 
         runProgram();
