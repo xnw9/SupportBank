@@ -29,9 +29,9 @@ Your program should support two commands, which can be typed in on the console:
     
 ### p2 logging and exception handling
 
-- [ ] Now add logging to your program
-- [ ] Get to a point where you could work out what went wrong by reading your log files
-- [ ] tells the user which line of the CSV caused the problem
+- [x] Now add logging to your program
+- [x] Get to a point where you could work out what went wrong by reading your log files - ***can I really work out what's wrong without knowing how the file is like?***
+- [x] tells the user which line of the CSV caused the problem
 - [ ] Discuss with your trainers and work out what to do in this situation
 
 
