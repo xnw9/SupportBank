@@ -1,29 +1,49 @@
 // ----------------------------- "import" -----------------------------------------
 
 
-
 const csv = require('csv-parser');
 var fs = require("fs")
 const readlineSync = require("readline-sync");
+const moment = require("moment");
+
 const log4js = require("log4js")
-
 // ------------------------- logging ------------------------------------
-
-
 
 log4js.configure({
     appenders: {
-        file: { type: 'fileSync', filename: 'logs/debug.log' }
+        file: {type: 'fileSync', filename: 'logs/debug.log'}
     },
     categories: {
-        default: { appenders: ['file'], level: 'debug'}
+        default: {appenders: ['file'], level: 'debug'}
     }
 });
 
 const logger = log4js.getLogger('p2.js');
-logger.log('debug')
+logger.log('START', "Starting")
 logger.trace()      // can be used to track down error?
 
+// ------------------------------- Account class -------------------------------------
+class Account {
+    constructor(name, balance) {
+        this.name = name
+        this.balance = balance
+    }
+
+    transferIn(amount) {
+        this.balance = this.balance + amount
+    }
+
+    transferOut(amount) {
+        this.balance = this.balance - amount
+    }
+
+    print() {
+        console.log(this.name + " has " + this.balance + "\n")
+    }
+
+    // link with trans! methods for showing name & balance to be used in trans?!?!?
+
+}
 
 // ------------------------------- Transaction class ----------------------------------
 
@@ -44,7 +64,6 @@ class Transaction {
     // for search function in bank
     searchResponse(name) {
         return (name == this.to || name == this.from)
-
     }
 }
 
@@ -53,10 +72,11 @@ class Transaction {
 class Bank {
     constructor() {
         this.fullTrans = []
+        this.accountNames = []
+        this.accounts = []
     }
 
     readAndParseFile(fileName) {
-        let result = []
         return new Promise((resolve, reject) => {
             let transactions = [];
             fs.createReadStream(fileName)
@@ -66,10 +86,10 @@ class Bank {
 
                     let trans = new Transaction(row.From,
                         row.To,
-                        row.Amount,
-                        row.Date,
+                        Number(row.Amount),
+                        moment(row.Date, "DD-MM-YYYY"),
                         row.Narrative)
-                    transactions.push(trans)
+                    transactions.push(trans);
 
                 })
                 .on('end', () => {
@@ -87,13 +107,38 @@ class Bank {
         const runProgram = async () => {
             this.fullTrans = await this.readAndParseFile(fileName);
             // use the transactions
-            console.log(this.fullTrans[0])     // just testing
+            console.log(this.accountNames[0])     // just testing
         }
         runProgram();
     }
 
+    readNameOnly(fileName) {
+        return new Promise((resolve, reject) => {
+            let accountNames = [];
+            fs.createReadStream(fileName)
+                .pipe(csv())
+                .on('data', (row) => {
+
+                    if (!accountNames.includes(row.From)) {
+                        accountNames.push(row.From)
+                    }
+                    if (!accountNames.includes(row.To)) {
+                        accountNames.push(row.To)
+                    }
+                })
+                .on('end', () => {
+                    if (accountNames) {
+                        resolve(accountNames)
+                    } else {
+                        reject(Error("No data was found in the .csv"))
+                    }
+                })
+        })
+    }
+
     // print everything
     printAll(fileName) {
+        logger.info("Printing all transactions")
         const runProgram = async () => {
             this.fullTrans = await this.readAndParseFile(fileName);
 
@@ -103,7 +148,7 @@ class Bank {
             }
         }
         runProgram();
-
+        logger.info("Printed all transactions")
     }
 
     // search transaction with target name & print
@@ -111,7 +156,7 @@ class Bank {
         const runProgram = async () => {
             this.fullTrans = await this.readAndParseFile(fileName);
             // use the transactions
-            let resultList = []
+            let resultList = []        // search for corresponding trans -- was originally a separate function, could be reused
             for (let i in this.fullTrans) {
                 let response = this.fullTrans[i].searchResponse(target)
                 if (response) {
@@ -128,21 +173,95 @@ class Bank {
         runProgram();
     }
 
+    // create account
+    createAccounts(fileName) {
+        const runProgram = async () => {
+            this.accountNames = await this.readNameOnly(fileName);
+
+            for (let i in this.accountNames) {
+                let acc = new Account(this.accountNames.name, 0)
+                this.accounts.push(acc)
+            }
+
+            console.log("Accounts initialisation completed")
+            console.log("We have " + String(this.accountNames.length) + " accounts")
+        }
+        runProgram();
+    }
+
+    // modify accounts according to csv !!!
+    updateAccounts(fileName, show) {
+        logger.info("Updating accounts")
+        if (show == undefined) {
+            logger.error("show is not defined")
+        }
+        const runProgram = async () => {
+            // get stuff from csv
+            this.accountNames = await this.readNameOnly(fileName);
+            this.fullTrans = await this.readAndParseFile(fileName);         // both working!
+
+            // create account
+            for (let i in this.accountNames) {
+                let acc = new Account(this.accountNames[i], 0)
+                this.accounts.push(acc)
+            }
+            console.log("Accounts initialisation completed")
+            console.log("We have " + String(this.accounts.length) + " accounts")
+
+            // update account according to transaction
+            for (let i in this.fullTrans) {      // for each transaction
+                if (i % 10 == 0) {
+                    console.log("Updated with transaction " + String(i))
+                }
+
+                let thisTran = this.fullTrans[i]
+
+                for (let j in this.accounts) {       // search for the account OBJECT with corresponding .name
+                    let thisAcc = this.accounts[j]
+
+                    if (thisAcc.name == thisTran.from) {     // name=transfer from, deduct amount from balance
+                        thisAcc.transferOut(thisTran.amount)
+                    }
+                    if (thisAcc.name == thisTran.to) {
+                        thisAcc.transferIn(thisTran.amount)
+                    }
+                }
+
+
+            }
+            console.log("Account update completed")
+            logger.info("Account update completed")
+
+            if (show) {
+                for (let i in this.accounts) {
+                    this.accounts[i].print()
+                }
+                logger.info("Accounts shown")
+            }
+        }
+        runProgram();
+    }
+
     // obtain and response to user input
-    service(fileName) {
+    serviceTrans(fileName) {
 
         var readlineSync = require('readline-sync');
         const command = readlineSync.question('List All / List Account: \n')
 
         // need to capture exception and return
 
-        let targetName = command.slice(5)
+        let targetName = command
 
         if (targetName == "All" || targetName == "all") {
             this.printAll(fileName)
         } else {
             this.printResult(targetName, fileName)
         }
+    }
+
+    // for viewing account
+    serviceAccount(fileName) {
+        this.updateAccounts(fileName, true)
     }
 }
 
@@ -151,8 +270,6 @@ class Bank {
 // nowFile = "Transactions2014.csv"
 nowFile = "DodgyTransactions2015.csv"
 let b = new Bank()
-// b.readFile(nowFile)
+// b.updateAccounts(nowFile)
+b.printResult("Ben B", nowFile)
 // b.printAll(nowFile)
-// console.log(b.fullTrans)     // which is empty
-// b.printResult("Jon A", nowFile)     // which is is working
-b.service(nowFile)
