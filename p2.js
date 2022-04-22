@@ -103,8 +103,6 @@ class Bank {
                         row.Narrative)
                     transactions.push(trans);
 
-                    console.log(Number(row.Amount))
-
                 })
                 .on('end', () => {
                     if (transactions) {
