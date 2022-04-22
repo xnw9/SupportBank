@@ -1,33 +1,22 @@
-[2022-04-22T15:06:07.617] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
-[2022-04-22T15:06:07.619] [INFO] p2.js - 
-[2022-04-22T15:06:38.722] [DEBUG] p2.js - 
-[2022-04-22T16:06:10.229] [DEBUG] p2.js - 
-[2022-04-22T16:06:34.277] [DEBUG] p2.js - 
-[2022-04-22T16:06:34.279] [INFO] p2.js - Updating accounts
-[2022-04-22T16:06:34.279] [INFO] p2.js - Show accounts is undefined
-[2022-04-22T16:06:34.303] [INFO] p2.js - Account update completed
-[2022-04-22T16:06:54.726] [DEBUG] p2.js - 
-[2022-04-22T16:06:54.728] [INFO] p2.js - Updating accounts
-[2022-04-22T16:06:54.729] [INFO] p2.js - Show accounts is false
-[2022-04-22T16:06:54.769] [INFO] p2.js - Account update completed
-[2022-04-22T16:06:58.760] [DEBUG] p2.js - 
-[2022-04-22T16:06:58.762] [INFO] p2.js - Updating accounts
-[2022-04-22T16:06:58.763] [INFO] p2.js - Show accounts is true
-[2022-04-22T16:06:58.787] [INFO] p2.js - Account update completed
-[2022-04-22T16:06:58.789] [INFO] p2.js - Accounts shown
-[2022-04-22T16:08:56.972] [DEBUG] p2.js - 
-[2022-04-22T16:14:01.012] [DEBUG] p2.js - Starting
-[2022-04-22T16:14:01.014] [INFO] p2.js - 
-[2022-04-22T16:14:08.976] [DEBUG] p2.js - Starting
-[2022-04-22T16:14:08.978] [INFO] p2.js - 
-[2022-04-22T16:15:51.570] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
-[2022-04-22T16:15:51.572] [INFO] p2.js - Starting
-[2022-04-22T16:15:51.573] [INFO] p2.js - Updating accounts
-[2022-04-22T16:15:51.573] [ERROR] p2.js - show is not defined
-[2022-04-22T16:15:51.597] [INFO] p2.js - Account update completed
-[2022-04-22T16:18:57.298] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
-[2022-04-22T16:18:57.300] [INFO] p2.js - Starting
-[2022-04-22T16:18:57.300] [INFO] p2.js - Printing all transactions
-[2022-04-22T16:18:57.303] [INFO] p2.js - Printed all transactions
-[2022-04-22T16:20:36.405] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
-[2022-04-22T16:20:36.407] [INFO] p2.js - Starting
+[2022-04-22T16:36:52.438] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-22T16:36:52.440] [INFO] p2.js - Starting
+[2022-04-22T16:36:52.440] [INFO] p2.js - Printing all transactions
+[2022-04-22T16:36:52.441] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-22T16:36:52.443] [INFO] p2.js - Printed all transactions
+[2022-04-22T16:37:51.050] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-22T16:37:51.052] [INFO] p2.js - Starting
+[2022-04-22T16:37:51.053] [INFO] p2.js - Printing all transactions
+[2022-04-22T16:37:51.055] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-22T16:37:51.058] [INFO] p2.js - Printed all transactions
+[2022-04-22T16:37:51.069] [ERROR] p2.js - Invalid number at 28
+[2022-04-22T16:39:45.074] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-22T16:39:45.076] [INFO] p2.js - Starting
+[2022-04-22T16:39:45.076] [INFO] p2.js - Printing all transactions
+[2022-04-22T16:39:45.077] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-22T16:39:45.089] [ERROR] p2.js - Invalid number at row 28
+[2022-04-22T16:40:15.157] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-22T16:40:15.159] [INFO] p2.js - Starting
+[2022-04-22T16:40:15.160] [INFO] p2.js - Printing all transactions
+[2022-04-22T16:40:15.160] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-22T16:40:15.175] [ERROR] p2.js - Invalid number at row 28
+[2022-04-22T16:40:15.182] [ERROR] p2.js - Invalid date at row 52

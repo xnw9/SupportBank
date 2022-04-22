@@ -78,11 +78,23 @@ class Bank {
 
     readAndParseFile(fileName) {
         return new Promise((resolve, reject) => {
+            logger.info("Start reading transactions from " + fileName)
+
             let transactions = [];
+            let rowNum = 1
             fs.createReadStream(fileName)
                 .pipe(csv())
                 // .on('data') handling transactions.push(...)
                 .on('data', (row) => {
+                    rowNum = rowNum + 1         // for logger
+                    if (String(moment(row.Date, "DD-MM-YYYY")) == "Invalid date") {
+                        logger.error("Invalid date at row " + String(rowNum))
+                        // continue to next row? ----------------------------------------------
+                    }
+                    // a better way to write/ --------------------------------------------------
+                    if (String(Number(row.Amount)) == "NaN" || String(Number(row.Amount)) == "NaN") {
+                        logger.error("Invalid number at row " + String(rowNum))
+                    }
 
                     let trans = new Transaction(row.From,
                         row.To,
@@ -90,6 +102,8 @@ class Bank {
                         moment(row.Date, "DD-MM-YYYY"),
                         row.Narrative)
                     transactions.push(trans);
+
+                    console.log(Number(row.Amount))
 
                 })
                 .on('end', () => {
@@ -148,7 +162,6 @@ class Bank {
             }
         }
         runProgram();
-        logger.info("Printed all transactions")
     }
 
     // search transaction with target name & print
@@ -271,5 +284,5 @@ class Bank {
 nowFile = "DodgyTransactions2015.csv"
 let b = new Bank()
 // b.updateAccounts(nowFile)
-b.printResult("Ben B", nowFile)
-// b.printAll(nowFile)
+// b.printResult("Ben B", nowFile)
+b.printAll(nowFile)
