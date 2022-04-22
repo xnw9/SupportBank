@@ -1,11 +1,15 @@
 // ----------------------------- "import" -----------------------------------------
 
+
+
 const csv = require('csv-parser');
 var fs = require("fs")
 const readlineSync = require("readline-sync");
 const log4js = require("log4js")
 
 // ------------------------- logging ------------------------------------
+
+
 
 log4js.configure({
     appenders: {
@@ -15,6 +19,10 @@ log4js.configure({
         default: { appenders: ['file'], level: 'debug'}
     }
 });
+
+const logger = log4js.getLogger('p2.js');
+logger.log('debug')
+logger.trace()      // can be used to track down error?
 
 
 // ------------------------------- Transaction class ----------------------------------

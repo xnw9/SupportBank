@@ -1,6 +1,6 @@
 /*
 TODO:
-- better fileName parameter
+- number
 
 
 PS:
@@ -13,6 +13,7 @@ PS:
 const csv = require('csv-parser');
 var fs = require("fs")
 const readlineSync = require("readline-sync");
+const moment = require('moment');
 
 // ------------------------------- Account class -------------------------------------
 class Account {
@@ -29,7 +30,7 @@ class Account {
         this.balance = this.balance - amount
     }
 
-    printBalance() {
+    print() {
         console.log(this.name + " has " + this.balance + "\n")
     }
 
@@ -78,8 +79,8 @@ class Bank {
 
                     let trans = new Transaction(row.From,
                         row.To,
-                        row.Amount,
-                        row.Date,
+                        Number(row.Amount),
+                        moment(row.Date, "DD-MM-YYYY"),
                         row.Narrative)
                     transactions.push(trans);
 
@@ -169,7 +170,7 @@ class Bank {
         const runProgram = async () => {
             this.accountNames = await this.readNameOnly(fileName);
 
-            for (let i in this.accountNames.length) {
+            for (let i in this.accountNames) {
                 let acc = new Account(this.accountNames.name, 0)
                 this.accounts.push(acc)
             }
@@ -180,24 +181,15 @@ class Bank {
         runProgram();
     }
 
-    // find the account with the name
-    // can't really work with runProgram, need to integrate with another function that requires this function
-
-
     // modify accounts according to csv !!!
-    updateAccounts(fileName) {
+    updateAccounts(fileName, show) {
         const runProgram = async () => {
             // get stuff
             this.accountNames = await this.readNameOnly(fileName);
             this.fullTrans = await this.readAndParseFile(fileName);         // both working!
 
-            console.log(this.accountNames.length)
-            console.log(this.fullTrans.length)
-
             // create account
-            // why can't enter this for loop???
-            for (let i in this.accountNames.length) {
-                console.log(i)
+            for (let i in this.accountNames) {
                 let acc = new Account(this.accountNames[i], 0)
                 this.accounts.push(acc)
             }
@@ -205,11 +197,14 @@ class Bank {
             console.log("We have " + String(this.accounts.length) + " accounts")
 
             // update account according to transaction
-            for (let i in this.fullTrans.length) {      // for each transaction
-                console.log("Updated transaction " + String(i))
+            for (let i in this.fullTrans) {      // for each transaction
+                if (i%10==0) {
+                    console.log("Updated with transaction " + String(i))
+                }
+
                 let thisTran = this.fullTrans[i]
 
-                for (let j in this.accounts.length) {       // search for the account OBJECT with corresponding .name
+                for (let j in this.accounts) {       // search for the account OBJECT with corresponding .name
                     let thisAcc = this.accounts[j]
 
                     if (thisAcc.name == thisTran.from) {     // name=transfer from, deduct amount from balance
@@ -224,6 +219,12 @@ class Bank {
 
             }
             console.log("Account update completed")
+
+            if (show) {
+                for (let i in this.accounts) {
+                    this.accounts[i].print()
+                }
+            }
         }
         runProgram();
 
@@ -231,14 +232,14 @@ class Bank {
     }
 
     // obtain and response to user input
-    service(fileName) {
+    serviceTrans(fileName) {
 
         var readlineSync = require('readline-sync');
         const command = readlineSync.question('List All / List Account: \n')
 
         // need to capture exception and return
 
-        let targetName = command.slice(5)
+        let targetName = command
 
         if (targetName == "All" || targetName == "all") {
             this.printAll(fileName)
@@ -246,15 +247,22 @@ class Bank {
             this.printResult(targetName, fileName)
         }
     }
+
+    // for viewing account
+    serviceAccount(fileName) {
+        this.updateAccounts(fileName, true)
+    }
 }
 
 // ----------------------- Playground ---------------------------------------
 
 nowFile = "Transactions2014.csv"
+// nowFile = "DodgyTransactions2015.csv"
 let b = new Bank()
 // b.readFile(nowFile)
 // b.printAll(nowFile)
 // console.log(b.fullTrans)     // which is empty
 // b.printResult("Jon A", nowFile)     // which is now working
+// b.serviceTrans(nowFile)
+b.updateAccounts(nowFile, true)
 
-b.updateAccounts(nowFile)

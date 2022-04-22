@@ -62,7 +62,7 @@ records
 */
 
 // 4444444444444444444444444444444444
-const csv = require('csv-parser');
+/*const csv = require('csv-parser');
 var fs = require("fs")
 
 function readAndParseFile() {
@@ -104,10 +104,15 @@ const runProgram = async () => {
 }
 
 runProgram();
-console.log(trans)
+console.log(trans)*/
 
 // b = a.then(function(result) {
 //     console.log(result[0])
 // })
 //
 // console.log(b)
+
+let a = [1,2,3]
+for (let i in a) {
+    console.log(a[i])
+}
