@@ -1,13 +1,21 @@
 /*
 TODO:
-- read csv data into Transaction objects
-- format date?
+- better fileName parameter
+
+
+PS:
+- moment("12/25/1995", "MM-DD-YYYY");
 
 */
 
-// moment("12/25/1995", "MM-DD-YYYY");
+// "import"
 
-// class for transaction
+const csv = require('csv-parser');
+var fs = require("fs")
+const readlineSync = require("readline-sync");
+
+// ------------------------------- Transaction class ----------------------------------
+
 class Transaction {
     constructor(from, to, amount, date, narrative) {
         this.from = from
@@ -19,8 +27,7 @@ class Transaction {
 
     // print
     print() {
-        console.log("print")
-        console.log(this.from + "transfer" + String(this.amount) + "to" + this.to + "at" + String(this.date))
+        console.log(this.from + " transfer " + String(this.amount) + " to " + this.to + " on " + String(this.date) + "\n")
     }
 
     // for search function in bank
@@ -30,14 +37,7 @@ class Transaction {
     }
 }
 
-///////////////////////////////////////////////////////////////
-const csv = require('csv-parser');
-var fs = require("fs")
-const readlineSync = require("readline-sync");
-
-
-/////////////////////////////////////////////////
-
+// ------------------------------ Bank class -----------------------------------
 
 class Bank {
     constructor() {
@@ -71,69 +71,76 @@ class Bank {
         })
     }
 
-    // read csv -----------------------------------------------!
+    // not really useful on its own
     readFile(fileName) {
-
         const runProgram = async () => {
             this.fullTrans = await this.readAndParseFile(fileName);
-
             // use the transactions
             console.log(this.fullTrans[0])     // just testing
         }
-
         runProgram();
     }
 
     // print everything
-    printAll() {
-        for (let i in this.fullTrans) {
-            this.fullTrans[i].print()
+    printAll(fileName) {
+        const runProgram = async () => {
+            this.fullTrans = await this.readAndParseFile(fileName);
+
+            // use the transactions
+            for (let i in this.fullTrans) {
+                this.fullTrans[i].print()
+            }
         }
+        runProgram();
+
     }
 
-    // search transaction with target name
-    search(target) {
-        let resultList = []
-        for (let i in this.fullTrans) {
-            let response = this.fullTrans[i].searchResponse(target)
-            if (response) {
-                resultList.push(this.fullTrans[i])
+    // search transaction with target name & print
+    printResult(target, fileName) {
+        const runProgram = async () => {
+            this.fullTrans = await this.readAndParseFile(fileName);
+            // use the transactions
+            let resultList = []
+            for (let i in this.fullTrans) {
+                let response = this.fullTrans[i].searchResponse(target)
+                if (response) {
+                    resultList.push(this.fullTrans[i])
+                }
+// ---------------------------------------- how about returning values??? maybe just combine them for now
             }
 
+            // ---------------- was supposed to be another function
+            for (let i in resultList) {
+                resultList[i].print()
+            }
         }
-        return resultList
-    }
-
-    // print transactions for target name
-    printResult(resultList) {
-        for (let i in resultList) {
-            resultList[i].print()
-        }
+        runProgram();
     }
 
     // obtain and response to user input
-    service() {
+    service(fileName) {
+
         var readlineSync = require('readline-sync');
-        const command = readlineSync.question('List All / List Account')
+        const command = readlineSync.question('List All / List Account: \n')
 
         // need to capture exception and return
 
         let targetName = command.slice(5)
 
-        if (name == "All") {
-            this.printAll()
+        if (targetName == "All" || targetName == "all") {
+            this.printAll(fileName)
         } else {
-            let resultList = this.search(targetName)     // search for account with that name
-            this.printResult(resultList)     // print out results
+            this.printResult(targetName, fileName)
         }
     }
 }
 
+// ----------------------- Playground ---------------------------------------
+
+nowFile = "Transactions2014.csv"
 let b = new Bank()
-b.readFile("Transactions2014.csv")
-b.printAll()
-console.log(b.fullTrans)     // still not logging, need to ask ---------------------
-r = b.search("Jon A")
-console.log(r)
-
-
+// b.readFile(nowFile)
+// b.printAll(nowFile)
+// console.log(b.fullTrans)     // which is empty
+b.printResult("Jon A", nowFile)     // which is is working
+b.service(nowFile)
