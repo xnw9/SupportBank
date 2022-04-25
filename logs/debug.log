@@ -183,3 +183,238 @@
 [2022-04-25T15:53:01.453] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
 [2022-04-25T15:53:01.454] [INFO] p2.js - Reading Transactions2013.json
 [2022-04-25T15:53:01.459] [INFO] p2.js - Account update completed
+[2022-04-25T16:06:01.898] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:06:01.900] [INFO] p2.js - Starting
+[2022-04-25T16:06:01.901] [INFO] p2.js - Updating accounts
+[2022-04-25T16:06:01.901] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:07:11.302] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:07:11.304] [INFO] p2.js - Starting
+[2022-04-25T16:07:11.305] [INFO] p2.js - Updating accounts
+[2022-04-25T16:07:11.305] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:07:20.358] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:07:20.360] [INFO] p2.js - Starting
+[2022-04-25T16:07:20.360] [INFO] p2.js - Updating accounts
+[2022-04-25T16:07:20.361] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:09:21.359] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:09:21.361] [INFO] p2.js - Starting
+[2022-04-25T16:09:21.363] [INFO] p2.js - Updating accounts
+[2022-04-25T16:09:21.363] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:09:21.388] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:09:21.414] [INFO] p2.js - Account update completed
+[2022-04-25T16:10:00.471] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:10:00.473] [INFO] p2.js - Starting
+[2022-04-25T16:10:00.473] [INFO] p2.js - Updating accounts
+[2022-04-25T16:10:00.474] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:10:00.498] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:10:00.522] [INFO] p2.js - Account update completed
+[2022-04-25T16:10:22.651] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:10:22.653] [INFO] p2.js - Starting
+[2022-04-25T16:10:22.654] [INFO] p2.js - Updating accounts
+[2022-04-25T16:10:22.654] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:10:22.656] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:10:22.661] [INFO] p2.js - Account update completed
+[2022-04-25T16:11:07.826] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:11:07.827] [INFO] p2.js - Starting
+[2022-04-25T16:11:07.828] [INFO] p2.js - Updating accounts
+[2022-04-25T16:11:07.828] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:11:07.830] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:11:07.834] [INFO] p2.js - Account update completed
+[2022-04-25T16:11:56.522] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:11:56.524] [INFO] p2.js - Starting
+[2022-04-25T16:11:56.524] [INFO] p2.js - Updating accounts
+[2022-04-25T16:11:56.525] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:11:56.526] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:11:56.530] [INFO] p2.js - Account update completed
+[2022-04-25T16:12:31.550] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:12:31.552] [INFO] p2.js - Starting
+[2022-04-25T16:12:31.552] [INFO] p2.js - Updating accounts
+[2022-04-25T16:12:31.553] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:13:02.189] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:13:02.191] [INFO] p2.js - Starting
+[2022-04-25T16:13:02.191] [INFO] p2.js - Updating accounts
+[2022-04-25T16:13:02.192] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:13:02.193] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:13:02.197] [INFO] p2.js - Account update completed
+[2022-04-25T16:13:23.166] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:13:23.168] [INFO] p2.js - Starting
+[2022-04-25T16:13:23.168] [INFO] p2.js - Updating accounts
+[2022-04-25T16:13:23.169] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:13:23.172] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:13:23.175] [INFO] p2.js - Account update completed
+[2022-04-25T16:16:06.544] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:16:06.545] [INFO] p2.js - Starting
+[2022-04-25T16:16:06.546] [INFO] p2.js - Updating accounts
+[2022-04-25T16:16:06.546] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:16:06.550] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:16:06.553] [INFO] p2.js - Account update completed
+[2022-04-25T16:17:59.989] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:17:59.990] [INFO] p2.js - Starting
+[2022-04-25T16:18:03.142] [INFO] p2.js - Printing all transactions
+[2022-04-25T16:18:03.143] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:18:13.056] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:18:13.058] [INFO] p2.js - Starting
+[2022-04-25T16:18:13.059] [INFO] p2.js - Updating accounts
+[2022-04-25T16:18:13.059] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:18:13.063] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:18:13.066] [INFO] p2.js - Account update completed
+[2022-04-25T16:18:39.640] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:18:39.642] [INFO] p2.js - Starting
+[2022-04-25T16:18:42.323] [INFO] p2.js - Printing all transactions
+[2022-04-25T16:18:42.324] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:47:54.256] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:47:54.258] [INFO] p2.js - Starting
+[2022-04-25T16:47:58.046] [INFO] p2.js - Printing all transactions
+[2022-04-25T16:47:58.047] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:48:05.509] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:48:05.510] [INFO] p2.js - Starting
+[2022-04-25T16:48:05.511] [INFO] p2.js - Updating accounts
+[2022-04-25T16:48:05.512] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:48:05.536] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:48:05.561] [INFO] p2.js - Account update completed
+[2022-04-25T16:51:03.701] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:51:03.703] [INFO] p2.js - Starting
+[2022-04-25T16:51:03.703] [INFO] p2.js - Updating accounts
+[2022-04-25T16:51:03.704] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T16:51:03.728] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T16:51:03.752] [INFO] p2.js - Account update completed
+[2022-04-25T16:52:25.879] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:52:25.881] [INFO] p2.js - Starting
+[2022-04-25T16:52:25.882] [INFO] p2.js - Updating accounts
+[2022-04-25T16:52:25.882] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:52:25.883] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:52:25.887] [INFO] p2.js - Account update completed
+[2022-04-25T16:52:53.406] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:52:53.408] [INFO] p2.js - Starting
+[2022-04-25T16:52:53.409] [INFO] p2.js - Printing all transactions
+[2022-04-25T16:52:53.409] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-25T16:52:53.420] [ERROR] p2.js - Invalid number at row 28
+[2022-04-25T16:52:53.423] [ERROR] p2.js - Invalid date at row 52
+[2022-04-25T16:53:10.888] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:53:10.890] [INFO] p2.js - Starting
+[2022-04-25T16:53:10.891] [INFO] p2.js - Updating accounts
+[2022-04-25T16:53:10.899] [INFO] p2.js - Start reading transactions from DodgyTransactions2015.csv
+[2022-04-25T16:53:10.905] [ERROR] p2.js - Invalid number at row 28
+[2022-04-25T16:53:10.909] [ERROR] p2.js - Invalid date at row 52
+[2022-04-25T16:53:10.911] [INFO] p2.js - Account update completed
+[2022-04-25T16:53:10.913] [INFO] p2.js - Accounts shown
+[2022-04-25T16:53:36.648] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:53:36.649] [INFO] p2.js - Starting
+[2022-04-25T16:53:36.650] [INFO] p2.js - Updating accounts
+[2022-04-25T16:53:36.650] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:53:36.654] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:53:36.657] [INFO] p2.js - Account update completed
+[2022-04-25T16:54:23.290] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:54:23.292] [INFO] p2.js - Starting
+[2022-04-25T16:54:23.293] [INFO] p2.js - Updating accounts
+[2022-04-25T16:54:23.293] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:54:23.297] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:54:23.335] [INFO] p2.js - Account update completed
+[2022-04-25T16:54:56.962] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:54:56.963] [INFO] p2.js - Starting
+[2022-04-25T16:54:56.964] [INFO] p2.js - Updating accounts
+[2022-04-25T16:54:56.964] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:54:56.968] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:54:56.972] [INFO] p2.js - Account update completed
+[2022-04-25T16:57:47.557] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:57:47.559] [INFO] p2.js - Starting
+[2022-04-25T16:57:47.560] [INFO] p2.js - Updating accounts
+[2022-04-25T16:57:47.560] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:57:47.564] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:57:47.569] [INFO] p2.js - Account update completed
+[2022-04-25T16:58:09.290] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:58:09.291] [INFO] p2.js - Starting
+[2022-04-25T16:58:09.292] [INFO] p2.js - Updating accounts
+[2022-04-25T16:58:09.292] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:58:09.296] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:58:09.300] [INFO] p2.js - Account update completed
+[2022-04-25T16:58:49.914] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:58:49.916] [INFO] p2.js - Starting
+[2022-04-25T16:58:49.916] [INFO] p2.js - Updating accounts
+[2022-04-25T16:58:49.917] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:58:49.921] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:58:49.925] [INFO] p2.js - Account update completed
+[2022-04-25T16:59:05.951] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T16:59:05.953] [INFO] p2.js - Starting
+[2022-04-25T16:59:05.953] [INFO] p2.js - Updating accounts
+[2022-04-25T16:59:05.954] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T16:59:05.954] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T16:59:05.959] [INFO] p2.js - Account update completed
+[2022-04-25T17:00:43.627] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:00:43.628] [INFO] p2.js - Starting
+[2022-04-25T17:00:43.629] [INFO] p2.js - Updating accounts
+[2022-04-25T17:00:43.629] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:00:43.630] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:00:43.635] [INFO] p2.js - Account update completed
+[2022-04-25T17:01:03.276] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:01:03.278] [INFO] p2.js - Starting
+[2022-04-25T17:01:03.279] [INFO] p2.js - Updating accounts
+[2022-04-25T17:01:03.279] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:01:03.280] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:01:03.286] [INFO] p2.js - Account update completed
+[2022-04-25T17:02:19.085] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:02:19.087] [INFO] p2.js - Starting
+[2022-04-25T17:02:19.088] [INFO] p2.js - Updating accounts
+[2022-04-25T17:02:19.088] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:02:19.089] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:03:13.830] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:03:13.831] [INFO] p2.js - Starting
+[2022-04-25T17:03:13.832] [INFO] p2.js - Updating accounts
+[2022-04-25T17:03:13.832] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:03:13.833] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:03:38.652] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:03:38.654] [INFO] p2.js - Starting
+[2022-04-25T17:03:38.654] [INFO] p2.js - Updating accounts
+[2022-04-25T17:03:38.655] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:03:38.655] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:04:17.523] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:04:17.525] [INFO] p2.js - Starting
+[2022-04-25T17:04:17.525] [INFO] p2.js - Updating accounts
+[2022-04-25T17:04:17.526] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:04:17.527] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:04:17.532] [INFO] p2.js - Account update completed
+[2022-04-25T17:07:17.239] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:07:17.241] [INFO] p2.js - Starting
+[2022-04-25T17:07:17.242] [INFO] p2.js - Updating accounts
+[2022-04-25T17:07:17.242] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T17:07:17.267] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T17:07:17.291] [INFO] p2.js - Account update completed
+[2022-04-25T17:09:30.060] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:09:30.062] [INFO] p2.js - Starting
+[2022-04-25T17:09:30.063] [INFO] p2.js - Updating accounts
+[2022-04-25T17:09:30.063] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:09:30.067] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:09:30.071] [INFO] p2.js - Account update completed
+[2022-04-25T17:10:17.410] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:10:17.412] [INFO] p2.js - Starting
+[2022-04-25T17:10:17.413] [INFO] p2.js - Updating accounts
+[2022-04-25T17:10:17.413] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:10:17.417] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:10:17.421] [INFO] p2.js - Account update completed
+[2022-04-25T17:11:48.552] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:11:48.555] [INFO] p2.js - Starting
+[2022-04-25T17:11:48.555] [INFO] p2.js - Updating accounts
+[2022-04-25T17:11:48.556] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:11:48.559] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:11:48.562] [INFO] p2.js - Account update completed
+[2022-04-25T17:12:08.943] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:12:08.945] [INFO] p2.js - Starting
+[2022-04-25T17:12:11.965] [INFO] p2.js - Printing all transactions
+[2022-04-25T17:12:11.965] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:12:27.188] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:12:27.189] [INFO] p2.js - Starting
+[2022-04-25T17:12:27.190] [INFO] p2.js - Updating accounts
+[2022-04-25T17:12:27.190] [INFO] p2.js - Reading ONLY names fromTransactions2014.csv
+[2022-04-25T17:12:27.200] [INFO] p2.js - Reading Transactions2014.csv
+[2022-04-25T17:12:27.223] [INFO] p2.js - Account update completed
+[2022-04-25T17:13:03.314] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:13:03.315] [INFO] p2.js - Starting
+[2022-04-25T17:13:03.316] [INFO] p2.js - Updating accounts
+[2022-04-25T17:13:03.317] [INFO] p2.js - Reading ONLY names fromTransactions2012.xml
+[2022-04-25T17:13:03.341] [INFO] p2.js - Reading Transactions2012.xml
+[2022-04-25T17:13:03.366] [INFO] p2.js - Account update completed
+[2022-04-25T17:13:08.868] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T17:13:08.870] [INFO] p2.js - Starting
+[2022-04-25T17:13:08.870] [INFO] p2.js - Updating accounts
+[2022-04-25T17:13:08.871] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T17:13:08.872] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T17:13:08.877] [INFO] p2.js - Account update completed

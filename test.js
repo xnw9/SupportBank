@@ -185,7 +185,7 @@ console.log(jsonData["elements"][0]["elements"][0]["attributes"]["Date"])
 
 function xml2list(fileName) {
     const xmlFile = fs.readFileSync(fileName, 'utf8');
-    const jsonData = JSON.parse(convert.xml2json(fileName));
+    const jsonData = JSON.parse(convert.xml2json(xmlFile));
     let jsonDataList = jsonData["elements"][0]["elements"]
 
     let list = []
@@ -208,7 +208,8 @@ function xml2list(fileName) {
 }
 
 function xml2names(fileName) {
-    const jsonData = JSON.parse(convert.xml2json(fileName));
+    const xmlFile = fs.readFileSync(fileName, 'utf8');
+    const jsonData = JSON.parse(convert.xml2json(xmlFile));
     let jsonDataList = jsonData["elements"][0]["elements"]
 
     let list = []
@@ -225,5 +226,5 @@ function xml2names(fileName) {
     return nameList
 }
 
-n = xml2names(xmlFile)
+n = xml2names(fileName)
 console.log(n)
