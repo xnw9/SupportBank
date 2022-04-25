@@ -37,10 +37,14 @@ Your program should support two commands, which can be typed in on the console:
 
 ### p3 JSON
 
-- [ ] Modify your program to accept JSON files in addition to CSV files (`JSON.parse()`)
-- [ ] adding a new command: `Import File` which reads the file from disk. You'll need different behaviour for CSV and JSON files
+- [x] Modify your program to accept JSON files in addition to CSV files (`JSON.parse()`)
+- [x] adding a new command: `Import File` which reads the file from disk. You'll need different behaviour for CSV and JSON files
 
 ***Try to keep your modules small and focused, and make their function obvious based on their name. Try not to have common functionality repeated across two or more modules!***
 
+### p4 XML
+Read XML file with npm packages
 
+### stretch goal
+`Export file`: write transactions out
 
