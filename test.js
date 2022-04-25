@@ -117,19 +117,113 @@ console.log(trans)*/
 //     console.log(a[i])
 // }
 
-var fs = require("fs")
-// change to promise version!!
-function json2list(fileName) {
-    return new Promise((resolve) => {
-        let raw = fs.readFileSync(fileName)
-        let data = JSON.parse(raw)
-        resolve(data)
-    })
-}
+// var fs = require("fs")
+// // change to promise version!!
+// function json2list(fileName) {
+//     return new Promise((resolve) => {
+//         let raw = fs.readFileSync(fileName)
+//         let data = JSON.parse(raw)
+//         resolve(data)
+//     })
+// }
+//
+// const runProgram = async () => {
+//     let r = await json2list("Transactions2013.json")
+//     console.log(r)
+// }
+// runProgram();
+
+// const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
+//
+// const parser = new XMLParser();
+// let jObj = parser.parse("Transactions2012.xml");
+//
+// const builder = new XMLBuilder();
+// const xmlContent = builder.build(jObj);
+
+fileName = "Transactions2012.xml"
+
+// function readxml(fileName) {
+//     return new Promise((resolve, reject) => {
+//         let jObj = parser.parse("Transactions2012.xml");
+//
+//         const builder = new XMLBuilder();
+//         const xmlContent = builder.build(jObj);
+//
+//         resolve(xmlContent)
+//     })
+// }
+//
+// const runProgram = async () => {
+//     let list = await readxml(fileName);
+//     console.log(".")
+//     console.log(list)
+// }
+// runProgram();
 
 
-const runProgram = async () => {
-    let r = await json2list("Transactions2013.json")
-    console.log(r)
+const convert = require('xml-js');
+const fs = require('fs');
+const moment = require("moment");
+
+// read file
+const xmlFile = fs.readFileSync(fileName, 'utf8');
+
+// parse xml file as a json object
+const jsonData = JSON.parse(convert.xml2json(xmlFile));
+console.log(jsonData["elements"][0]["elements"][0])
+// narrative
+console.log(jsonData["elements"][0]["elements"][0]["elements"][0]["elements"][0]["text"])
+// amount
+console.log(jsonData["elements"][0]["elements"][0]["elements"][1]["elements"][0]["text"])
+// from
+console.log(jsonData["elements"][0]["elements"][0]["elements"][2]["elements"][0]["elements"][0]["text"])
+// to
+console.log(jsonData["elements"][0]["elements"][0]["elements"][2]["elements"][1]["elements"][0]["text"])
+// date
+console.log(jsonData["elements"][0]["elements"][0]["attributes"]["Date"])
+
+function xml2list(fileName) {
+    const xmlFile = fs.readFileSync(fileName, 'utf8');
+    const jsonData = JSON.parse(convert.xml2json(fileName));
+    let jsonDataList = jsonData["elements"][0]["elements"]
+
+    let list = []
+
+    for (let i in jsonDataList) {
+
+        let item = {
+            // TODO: date format
+            "Date": jsonDataList[i]["attributes"]["Date"],
+            "FromAccount": jsonDataList[i]["elements"][2]["elements"][0]["elements"][0]["text"],
+            "ToAccount": jsonDataList[i]["elements"][2]["elements"][1]["elements"][0]["text"],
+            "Narrative": jsonDataList[i]["elements"][0]["elements"][0]["text"],
+            "Amount": Number(jsonDataList[i]["elements"][1]["elements"][0]["text"])
+        }
+
+        list.push(item)
+    }
+    console.log("Turned to list")
+    return list
 }
-runProgram();
+
+function xml2names(fileName) {
+    const jsonData = JSON.parse(convert.xml2json(fileName));
+    let jsonDataList = jsonData["elements"][0]["elements"]
+
+    let list = []
+
+    for (let i in jsonDataList) {
+        fromName = jsonDataList[i]["elements"][2]["elements"][0]["elements"][0]["text"]
+        toName = jsonDataList[i]["elements"][2]["elements"][1]["elements"][0]["text"]
+        list.push(fromName, toName)
+    }
+
+    nameList = new Set(list)
+
+    console.log("Turned to name list")
+    return nameList
+}
+
+n = xml2names(xmlFile)
+console.log(n)

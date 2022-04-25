@@ -177,3 +177,9 @@
 [2022-04-25T12:44:01.950] [INFO] p2.js - Reading Transactions2013.json
 [2022-04-25T12:44:01.956] [INFO] p2.js - Account update completed
 [2022-04-25T12:44:01.958] [INFO] p2.js - Accounts shown
+[2022-04-25T15:53:01.450] [WARN] p2.js - l o g 4 j s : l o g g e r . l o g :   i n v a l i d   v a l u e   f o r   l o g - l e v e l   a s   f i r s t   p a r a m e t e r   g i v e n :  
+[2022-04-25T15:53:01.452] [INFO] p2.js - Starting
+[2022-04-25T15:53:01.452] [INFO] p2.js - Updating accounts
+[2022-04-25T15:53:01.453] [INFO] p2.js - Reading ONLY names fromTransactions2013.json
+[2022-04-25T15:53:01.454] [INFO] p2.js - Reading Transactions2013.json
+[2022-04-25T15:53:01.459] [INFO] p2.js - Account update completed

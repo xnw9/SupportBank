@@ -3,6 +3,31 @@ TODO: better method to catch invalid input
 
 */
 
+// ----------------------------- "import" -----------------------------------------
+
+const csv = require('csv-parser');
+var fs = require("fs")
+var readlineSync = require('readline-sync');
+const moment = require("moment");
+const log4js = require("log4js")
+
+// ------------------------- logging ------------------------------------
+
+log4js.configure({
+    appenders: {
+        file: {type: 'fileSync', filename: 'logs/debug.log'}
+    },
+    categories: {
+        default: {appenders: ['file'], level: 'debug'}
+    }
+});
+
+const logger = log4js.getLogger('p2.js');
+logger.log('START', "Starting")
+logger.trace()      // can be used to track down error?
+
+// ------------------------ functions ------------------------------------
+
 function saveToTrans(list) {
     // convert to Transaction objects
     let transactions = []
@@ -21,7 +46,7 @@ function saveToTrans(list) {
 function csv2list(fileName) {
     return new Promise((resolve, reject) => {
         let rowNum = 1
-        list = []
+        let list = []
         fs.createReadStream(fileName)
             .pipe(csv())
             // .on('data') handling transactions.push(...)
@@ -33,7 +58,7 @@ function csv2list(fileName) {
                 } else if (String(Number(row.Amount)) == "NaN" || String(Number(row.Amount)) == "NaN") {
                     logger.error("Invalid number at row " + String(rowNum))
                 } else {
-                    item = {
+                    let item = {
                         "Date": moment(row.Date, "DD-MM-YYY"),
                         "FromAccount": row.From,
                         "ToAccount": row.To,
@@ -66,17 +91,14 @@ function json2list(fileName) {
 
 function csv2name(fileName) {
     return new Promise((resolve, reject) => {
-        let accountNames = [];
+        let names = [];
         fs.createReadStream(fileName)
             .pipe(csv())
             .on('data', (row) => {
 
-                if (!accountNames.includes(row.From)) {
-                    accountNames.push(row.From)
-                }
-                if (!accountNames.includes(row.To)) {
-                    accountNames.push(row.To)
-                }
+                names.push(row.To, row.From)
+                accountNames = new Set(names)
+
             })
             .on('end', () => {
                 if (accountNames) {
@@ -90,18 +112,14 @@ function csv2name(fileName) {
 
 function json2name(fileName) {
     return new Promise((resolve) => {
-        let accountNames = [];
+        let names = [];
         let raw = fs.readFileSync(fileName)
         let data = JSON.parse(raw)
 
         // there must be a better way to deal with this - set? -------------------
         for (let i in data) {
-            if (!accountNames.includes(data[i]["FromAccount"])) {
-                accountNames.push(data[i]["FromAccount"])
-            }
-            if (!accountNames.includes(data[i]["ToAccount"])) {
-                accountNames.push(data[i]["ToAccount"])
-            }
+            names.push(data[i]["FromAccount"], data[i]["ToAccount"])
+            accountNames = new Set(names)
         }
         resolve(accountNames)
     })
@@ -144,37 +162,13 @@ function updateWith(accountNames, fullTrans, showAccounts) {
         for (let i in accounts) {
             accounts[i].print()
         }
-        logger.info("Accounts shown")
     }
 
     return accounts
 }
 
-// ----------------------------- "import" -----------------------------------------
-
-
-const csv = require('csv-parser');
-var fs = require("fs")
-var readlineSync = require('readline-sync');
-const moment = require("moment");
-
-const log4js = require("log4js")
-// ------------------------- logging ------------------------------------
-
-log4js.configure({
-    appenders: {
-        file: {type: 'fileSync', filename: 'logs/debug.log'}
-    },
-    categories: {
-        default: {appenders: ['file'], level: 'debug'}
-    }
-});
-
-const logger = log4js.getLogger('p2.js');
-logger.log('START', "Starting")
-logger.trace()      // can be used to track down error?
-
 // ------------------------------- Account class -------------------------------------
+
 class Account {
     constructor(name, balance) {
         this.name = name
