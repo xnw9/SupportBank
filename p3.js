@@ -97,10 +97,10 @@ function csv2names(fileName) {
             .on('data', (row) => {
 
                 names.push(row.To, row.From)
-                accountNames = new Set(names)
-
             })
+
             .on('end', () => {
+                let accountNames = Array.from(new Set(names))
                 if (accountNames) {
                     resolve(accountNames)
                 } else {
@@ -116,16 +116,16 @@ function json2names(fileName) {
         let raw = fs.readFileSync(fileName)
         let data = JSON.parse(raw)
 
-        // there must be a better way to deal with this - set? -------------------
         for (let i in data) {
             names.push(data[i]["FromAccount"], data[i]["ToAccount"])
-            accountNames = new Set(names)
         }
+        let accountNames = Array.from(new Set(names))
+        console.log(accountNames)
         resolve(accountNames)
     })
 }
 
-function updateWith(accountNames, fullTrans, showAccounts) {
+function updateWith(accountNames, fullTrans) {
     // create account
     let accounts = []
     for (let i in accountNames) {
@@ -157,12 +157,6 @@ function updateWith(accountNames, fullTrans, showAccounts) {
     }
     console.log("Account update completed")
     logger.info("Account update completed")
-
-    if (showAccounts) {
-        for (let i in accounts) {
-            accounts[i].print()
-        }
-    }
 
     return accounts
 }
@@ -228,7 +222,7 @@ class Bank {
         logger.info("Reading ONLY names from" + fileName)
         let extension = fileName.split(".")[1]
         if (extension == "csv") {
-            return csv2names(fileName)
+            return csv2names(fileName)     // return promise
         } else if (extension == "json") {
             return json2names(fileName)
         }
@@ -280,6 +274,8 @@ class Bank {
         runProgram();
     }
 
+
+
     // create & update (& print) accounts according to file, which (has to) involves loading transactions
     updateAccounts(fileName, showAccounts) {
         logger.info("Updating accounts")
@@ -292,7 +288,13 @@ class Bank {
             let list = await this.readFile(fileName);
             this.fullTrans = saveToTrans(list)
 
-            this.accounts = updateWith(this.accountNames, this.fullTrans, showAccounts)
+            this.accounts = updateWith(this.accountNames, this.fullTrans)
+
+            if (showAccounts) {
+                for (let i in this.accounts) {
+                    this.accounts[i].print()
+                }
+            }
         }
         runProgram();
     }
@@ -320,8 +322,8 @@ class Bank {
 
 // ----------------------- Playground ---------------------------------------
 
-// nowFile = "Transactions2014.csv"
-nowFile = "Transactions2013.json"
+nowFile = "Transactions2014.csv"
+// nowFile = "Transactions2013.json"
 let b = new Bank()
 // b.updateAccounts(nowFile)
 // b.printResult("Ben B", nowFile)
