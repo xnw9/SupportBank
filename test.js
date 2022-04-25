@@ -112,7 +112,24 @@ console.log(trans)*/
 //
 // console.log(b)
 
-let a = [1,2,3]
-for (let i in a) {
-    console.log(a[i])
+// let a = [1,2,3]
+// for (let i in a) {
+//     console.log(a[i])
+// }
+
+var fs = require("fs")
+// change to promise version!!
+function json2list(fileName) {
+    return new Promise((resolve) => {
+        let raw = fs.readFileSync(fileName)
+        let data = JSON.parse(raw)
+        resolve(data)
+    })
 }
+
+
+const runProgram = async () => {
+    let r = await json2list("Transactions2013.json")
+    console.log(r)
+}
+runProgram();

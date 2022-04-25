@@ -200,8 +200,8 @@ class Bank {
         runProgram();
     }
 
-    // modify accounts according to csv !!!
-    updateAccounts(fileName, show) {
+    // modify accounts as well according to csv !!!
+    updateAll(fileName, show) {
         logger.info("Updating accounts")
         if (show == undefined) {
             logger.error("show is not defined")
@@ -272,7 +272,7 @@ class Bank {
 
     // for viewing account
     serviceAccount(fileName) {
-        this.updateAccounts(fileName, true)
+        this.updateAll(fileName, true)
     }
 }
 
@@ -281,6 +281,6 @@ class Bank {
 // nowFile = "Transactions2014.csv"
 nowFile = "DodgyTransactions2015.csv"
 let b = new Bank()
-// b.updateAccounts(nowFile)
+// b.updateAll(nowFile)
 // b.printResult("Ben B", nowFile)
 b.printAll(nowFile)
