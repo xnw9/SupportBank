@@ -89,7 +89,7 @@ function json2list(fileName) {
     })
 }
 
-function csv2name(fileName) {
+function csv2names(fileName) {
     return new Promise((resolve, reject) => {
         let names = [];
         fs.createReadStream(fileName)
@@ -110,7 +110,7 @@ function csv2name(fileName) {
     })
 }
 
-function json2name(fileName) {
+function json2names(fileName) {
     return new Promise((resolve) => {
         let names = [];
         let raw = fs.readFileSync(fileName)
@@ -228,9 +228,9 @@ class Bank {
         logger.info("Reading ONLY names from" + fileName)
         let extension = fileName.split(".")[1]
         if (extension == "csv") {
-            return csv2name(fileName)
+            return csv2names(fileName)
         } else if (extension == "json") {
-            return json2name(fileName)
+            return json2names(fileName)
         }
     }
 
