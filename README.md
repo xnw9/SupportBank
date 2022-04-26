@@ -1,6 +1,7 @@
 # SupportBank
 JS Bootcamp Ex.2 SupportBank
 
+stretch.js includes everything from p1-p4 and stretch goal; p1 only includes content from p1 and is not up to date, etc.
 
 ### p1 reading csv
 
