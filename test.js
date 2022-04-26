@@ -162,6 +162,7 @@ fileName = "Transactions2012.xml"
 // runProgram();
 
 
+/*
 const convert = require('xml-js');
 const fs = require('fs');
 const moment = require("moment");
@@ -227,4 +228,34 @@ function xml2names(fileName) {
 }
 
 n = xml2names(fileName)
-console.log(n)
+console.log(n)*/
+
+
+/*
+const csv = require('fast-csv');
+const csvStream = csv.format({ headers: true });
+csvStream.pipe(process.stdout).on('end', () => process.exit());
+csvStream.write({ header1: 'row1-col1', header2: 'row1-col2' });
+csvStream.write({ header1: 'row2-col1', header2: 'row2-col2' });
+csvStream.end();
+*/
+
+var fs = require('fs');
+var stream = fs.createWriteStream("my_file.txt");
+stream.once('open', function(fd) {
+    stream.write("My first row\n");
+    stream.write("My second row\n");
+    stream.end();
+});
+
+function exportTrans(exportName, trans) {
+    var stream = fs.createWriteStream("my_file.txt");
+    stream.once('open', function(fd) {
+
+        for (let i in trans) {
+            stream.write(trans[i] + "\n")
+        }
+
+        stream.end();
+    });
+}
