@@ -1,6 +1,9 @@
 /*
-TODO: better method to catch invalid input
-
+TODO: better way to catch invalid input
+TODO: logging
+TODO: avoid calling account.name directly?
+TODO: date formatting
+TODO: show available accounts in serviceTrans
 */
 
 // ----------------------------- "import" -----------------------------------------
@@ -24,26 +27,11 @@ log4js.configure({
 });
 
 const logger = log4js.getLogger('p2.js');
-logger.log('START', "Starting")
-logger.trace()      // can be used to track down error?
+logger.info("Start")
 
 // ------------------------ functions ------------------------------------
 
-function saveToTrans(list) {
-    // convert to Transaction objects
-    let transactions = []
-
-    for (let i in list) {
-        let trans = new Transaction(list[i]["FromAccount"],
-            list[i]["ToAccount"],
-            list[i]["Amount"],
-            list[i]["Date"],
-            list[i]["Narrative"])
-        transactions.push(trans);
-    }
-    return transactions
-}
-
+// importing from (csv, json, xml) file to list
 function csv2list(fileName) {
     return new Promise((resolve, reject) => {
         let rowNum = 1
@@ -90,6 +78,34 @@ function json2list(fileName) {
     })
 }
 
+function xml2list(fileName) {
+    return new Promise((resolve) => {
+        const xmlFile = fs.readFileSync(fileName, 'utf8');
+        const jsonData = JSON.parse(convert.xml2json(xmlFile));
+        let jsonDataList = jsonData["elements"][0]["elements"]
+
+        let list = []
+
+        for (let i in jsonDataList) {
+
+            let item = {
+                // TODO: date format
+                "Date": jsonDataList[i]["attributes"]["Date"],
+                "FromAccount": jsonDataList[i]["elements"][2]["elements"][0]["elements"][0]["text"],
+                "ToAccount": jsonDataList[i]["elements"][2]["elements"][1]["elements"][0]["text"],
+                "Narrative": jsonDataList[i]["elements"][0]["elements"][0]["text"],
+                "Amount": Number(jsonDataList[i]["elements"][1]["elements"][0]["text"])
+            }
+
+            list.push(item)
+        }
+        console.log("Turned to list")
+        resolve(list)
+    })
+
+}
+
+// importing from (csv, json, xml) file to list of names only
 function csv2names(fileName) {
     return new Promise((resolve, reject) => {
         let names = [];
@@ -126,33 +142,6 @@ function json2names(fileName) {
     })
 }
 
-function xml2list(fileName) {
-    return new Promise((resolve) => {
-        const xmlFile = fs.readFileSync(fileName, 'utf8');
-        const jsonData = JSON.parse(convert.xml2json(xmlFile));
-        let jsonDataList = jsonData["elements"][0]["elements"]
-
-        let list = []
-
-        for (let i in jsonDataList) {
-
-            let item = {
-                // TODO: date format
-                "Date": jsonDataList[i]["attributes"]["Date"],
-                "FromAccount": jsonDataList[i]["elements"][2]["elements"][0]["elements"][0]["text"],
-                "ToAccount": jsonDataList[i]["elements"][2]["elements"][1]["elements"][0]["text"],
-                "Narrative": jsonDataList[i]["elements"][0]["elements"][0]["text"],
-                "Amount": Number(jsonDataList[i]["elements"][1]["elements"][0]["text"])
-            }
-
-            list.push(item)
-        }
-        console.log("Turned to list")
-        resolve(list)
-    })
-
-}
-
 function xml2names(fileName) {
     return new Promise((resolve) => {
         const xmlFile = fs.readFileSync(fileName, 'utf8');
@@ -170,12 +159,27 @@ function xml2names(fileName) {
         nameList = Array.from(new Set(list))
 
         console.log("Turned to name list")
-        console.log(nameList)
         resolve(nameList)
     })
 
 }
 
+// convert list to list of Transaction objects
+function saveToTrans(list) {
+    let transactions = []
+
+    for (let i in list) {
+        let trans = new Transaction(list[i]["FromAccount"],
+            list[i]["ToAccount"],
+            list[i]["Amount"],
+            list[i]["Date"],
+            list[i]["Narrative"])
+        transactions.push(trans);
+    }
+    return transactions
+}
+
+// update account following given transactions
 function updateWith(accountNames, fullTrans, showAccounts) {
     // create account
     let accounts = []
@@ -186,7 +190,7 @@ function updateWith(accountNames, fullTrans, showAccounts) {
     console.log("Accounts initialisation completed")
     console.log("We have " + String(accounts.length) + " accounts")
 
-    // update account according to transaction
+    // update account
     for (let i in fullTrans) {      // for each transaction
         if (i % 10 == 0) {
             console.log("Updated with transaction " + String(i))
@@ -197,7 +201,7 @@ function updateWith(accountNames, fullTrans, showAccounts) {
         for (let j in accounts) {       // search for the account OBJECT with corresponding .name
             let thisAcc = accounts[j]
 
-            if (thisAcc.name == thisTran.from) {     // name=transfer from, deduct amount from balance
+            if (thisAcc.name == thisTran.from) {     // manipulate balance of the account OBJECT
                 thisAcc.transferOut(thisTran.amount)
             }
             if (thisAcc.name == thisTran.to) {
@@ -209,6 +213,7 @@ function updateWith(accountNames, fullTrans, showAccounts) {
     console.log("Account update completed")
     logger.info("Account update completed")
 
+    // print accounts
     if (showAccounts) {
         for (let i in accounts) {
             accounts[i].print()
@@ -238,7 +243,6 @@ class Account {
         console.log(this.name + " has " + parseFloat(this.balance).toFixed(2) + "\n")
     }
 
-    // link with trans! methods for showing name & balance to be used in trans?!?!?
 
 }
 
@@ -249,17 +253,16 @@ class Transaction {
         this.from = from
         this.to = to
         this.amount = amount
-        this.date = date     // requires further tempting?
+        this.date = date
         this.narrative = narrative
     }
 
-    // print
     print() {
         console.log(this.from + " transferred " + String(this.amount) + " to " + this.to + " on " + String(this.date) + "\n")
         return (this.from + " transferred " + String(this.amount) + " to " + this.to + " on " + String(this.date))
     }
 
-    // for search function in bank
+    // for search function in bank class
     searchResponse(name) {
         return (name == this.to || name == this.from)
     }
@@ -274,8 +277,8 @@ class Bank {
         this.accounts = []
     }
 
-    // choose between file type, calling corresponding outside functions
-    // returning Promises
+    // choose between file type, calling corresponding functions from outside
+    // return is Promise
     readNameOnly(fileName) {
         logger.info("Reading ONLY names from" + fileName)
         let extension = fileName.split(".")[1]
@@ -300,14 +303,12 @@ class Bank {
         }
     }
 
-    // print transactions
     printTrans(fileName) {
         logger.info("Printing all transactions")
         const runProgram = async () => {
             let list = await this.readFile(fileName);
             this.fullTrans = saveToTrans(list)
 
-            // use the transactions
             for (let i in this.fullTrans) {
                 this.fullTrans[i].print()
             }
@@ -320,8 +321,9 @@ class Bank {
         const runProgram = async () => {
             let list = await this.readFile(fileName);
             this.fullTrans = saveToTrans(list)
-            // use the transactions
-            let resultList = []        // search for corresponding trans -- was originally a separate function, could be reused
+
+            // search for corresponding trans, make it a separate function?
+            let resultList = []
             for (let i in this.fullTrans) {
                 let response = this.fullTrans[i].searchResponse(target)
                 if (response) {
@@ -353,7 +355,7 @@ class Bank {
         runProgram();
     }
 
-    // obtain and response to user input
+    // obtain and response to user input about transactions
     serviceTrans(fileName) {
         const command = readlineSync.question('List All (type all) / List Account (type name): \n')
 
@@ -369,11 +371,12 @@ class Bank {
     }
 
     // for viewing account
+    // can make it only show specific account following user input like serviceTrans
     serviceAccount(fileName) {
         this.updateAccounts(fileName, true)
     }
 
-    // export transactions to file
+    // export transaction lines to file
     exportTrans(fileName) {
         logger.info("Exporting all transactions to " + fileName.split(".")[0] + "_Transactions.txt")
         const runProgram = async () => {
@@ -385,9 +388,9 @@ class Bank {
                 transactions.push(this.fullTrans[i].print())
             }
 
-            // export
-            var stream = fs.createWriteStream(fileName.split(".")[0]+"_Transactions.txt");
-            stream.once('open', function(fd) {
+            // write to txt
+            var stream = fs.createWriteStream(fileName.split(".")[0] + "_Transactions.txt");
+            stream.once('open', function (fd) {
 
                 for (let i in transactions) {
                     stream.write(transactions[i] + "\n")
@@ -409,6 +412,6 @@ nowFile = "Transactions2012.xml"
 let b = new Bank()
 // b.updateAccounts(nowFile)
 // b.printResult("Ben B", nowFile)
-// b.serviceTrans(nowFile)
+b.serviceTrans(nowFile)
 // b.serviceAccount(nowFile, true)
-b.exportTrans(nowFile)
+// b.exportTrans(nowFile)
