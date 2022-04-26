@@ -43,7 +43,6 @@ function csv2list(fileName) {
                 rowNum = rowNum + 1         // for logger
                 if (String(moment(row.Date, "DD-MM-YYYY")) == "Invalid date") {
                     logger.error("Invalid date at row " + String(rowNum))
-                    // continue to next row? ----------------------------------------------
                 } else if (String(Number(row.Amount)) == "NaN" || String(Number(row.Amount)) == "NaN") {
                     logger.error("Invalid number at row " + String(rowNum))
                 } else {
@@ -133,7 +132,6 @@ function json2names(fileName) {
         let raw = fs.readFileSync(fileName)
         let data = JSON.parse(raw)
 
-        // there must be a better way to deal with this - set? -------------------
         for (let i in data) {
             names.push(data[i]["FromAccount"], data[i]["ToAccount"])
         }
